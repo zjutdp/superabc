@@ -7,7 +7,7 @@ Things you may want to cover:
 
 * Ruby version
 
-<tt>ruby 2.2.7p470</tt>
+** <tt>ruby 2.2.7p470</tt>
 
 * System dependencies
 
@@ -15,11 +15,11 @@ Things you may want to cover:
 
 * Database creation
 
-<tt>Built-in SQLite DB</tt>
+** <tt>Built-in SQLite DB</tt>
 
 * Database initialization
 
-<tt>rake db:schema:load</tt>
+** <tt>rake db:schema:load</tt>
 
 * How to run the test suite
 
@@ -27,8 +27,8 @@ Things you may want to cover:
 
 * Deployment instructions
 
-<tt>start server by "rails s", then navigate to "localhost:3000"</tt>
-
+** <tt> 1. start server by "rails s", then navigate to "localhost:3000"</tt>
+** <tt> 2. run "docker build .", then run "docker run -p 3000:3000 -it superabc/1.5.1 rails s -b 0.0.0.0" </tt>
 * ...
 
 
