@@ -96,7 +96,8 @@ class TestsController < ApplicationController
     @test_result = TestResult.new
     @test_result.test = @test 
     @test_result.name = @test.name + "@" + Time.now.to_s
-    @test_result.start_at = Time.now
+    @test_result.start_at = Time.now # TODO
+    @test_result.end_at = Time.now
     @test_result.save
     @test.single_choice_tests.each do |sct|
       single_choice_test_result = SingleChoiceTestResult.new
