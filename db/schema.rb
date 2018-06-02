@@ -84,8 +84,6 @@ ActiveRecord::Schema.define(version: 20160706010909) do
     t.text "content", null: false
   end
 
-  add_index "sorts", ["title"], name: "sqlite_autoindex_sorts_1", unique: true
-
   create_table "sound_files", force: :cascade do |t|
     t.text     "name",        null: false
     t.text     "location",    null: false
@@ -99,13 +97,9 @@ ActiveRecord::Schema.define(version: 20160706010909) do
     t.datetime "end_at",   null: false
   end
 
-  add_index "test_results", ["name"], name: "sqlite_autoindex_test_results_1", unique: true
-
   create_table "tests", force: :cascade do |t|
     t.text "name", null: false
   end
-
-  add_index "tests", ["name"], name: "sqlite_autoindex_tests_1", unique: true
 
   create_table "word_english_translations", force: :cascade do |t|
     t.integer "w_id"
@@ -116,7 +110,5 @@ ActiveRecord::Schema.define(version: 20160706010909) do
     t.text "name",                null: false
     t.text "english_translation", null: false
   end
-
-  add_index "words", ["name"], name: "sqlite_autoindex_words_1", unique: true
 
 end

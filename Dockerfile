@@ -6,4 +6,4 @@ COPY Gemfile /superabc/Gemfile
 COPY Gemfile.lock /superabc/Gemfile.lock
 RUN bundle install
 COPY . /superabc
-rake db:schema:load
+RUN rake db:schema:load
