@@ -7,7 +7,7 @@ Things you may want to cover:
 
 * Ruby version
 
-ruby 2.2.7p470
+<tt>ruby 2.2.7p470</tt>
 
 * System dependencies
 
@@ -15,17 +15,19 @@ ruby 2.2.7p470
 
 * Database creation
 
-Built-in SQLite DB
+<tt>Built-in SQLite DB</tt>
 
 * Database initialization
 
-rake db:schema:load
+<tt>rake db:schema:load</tt>
 
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+
+<tt>start server by "rails s", then navigate to "localhost:3000"</tt>
 
 * ...
 
