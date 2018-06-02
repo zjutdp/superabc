@@ -1,0 +1,21 @@
+<h1>All Test Results</h1>
+
+<table border="1">
+    <tr>
+      <th>Name </th>
+      <th>Score</th>
+      <th>Delete</th>
+      <th>Show</th>
+      <th>Re-run</th>
+    </tr>
+<% @test_results.each do |tr| %>
+    <tr>
+      <td><%= tr.name %></td>
+      <td><%= tr.result %></td>
+      <td><%= link_to 'Delete', "/test_results/#{tr.id}", method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'Show', "/test_results/#{tr.id}", method: :get %></td>
+      <td><%= link_to 'GO!!!', test_run_path(tr.test), method: :post, data: {confirm: 'Ready for test again?'} %></td>
+    </tr>
+<% end %>
+</table>
+

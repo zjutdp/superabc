@@ -1,0 +1,12 @@
+<h1> Import Words </h1>
+
+<% # DON'T forget adding 'enctype' field, otherwise the file param will be just a file name instead of path if you are using firefox %>
+<%= form_tag import_words_path, multiple_part: false, enctype: "multipart/form-data" do %>
+<label>Select a file to upload</label>
+</br>
+</br>
+<%= file_field_tag "file", accept: "csv" %>
+</br>
+</br>
+<%= submit_tag "Upload" %>
+<% end %>

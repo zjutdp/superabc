@@ -1,0 +1,31 @@
+<h1>All Listen Complete of the SuperABC</h1>
+<h2> <%=link_to "Delete All", delete_all_listen_completes_path %> </h2>
+<table border="1">
+  <tr>
+    <th>Story</th>
+    <th>Page Number</th>
+    <th>Passage</th>
+    <th>Sound File</th>
+    <th>Playback Start Time</th>
+    <th>Playback End Time</th>
+    <th>Delete</th>
+    <th>Update</th>
+  </tr>
+<% @listen_completes.each do |lc| %>
+  <tr>
+    <td><%= lc.story %></td>
+    <td><%= lc.page %></td>
+    <td><p><%= lc.passage %></p></td>
+    <td><%= lc.sound_file.name %></td>
+    <td><%= lc.playback_start %></td>
+    <td><%= lc.playback_end %></td>
+    <td><%= link_to 'Delete', listen_complete_path(lc),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+
+    <td><%= link_to 'Update', edit_listen_complete_path(lc) %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2> <%= link_to "Back to SuperABC Home", controller: "welcome", action: "index" %> </h2>

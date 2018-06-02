@@ -1,0 +1,17 @@
+<h1>New Word</h1>
+
+<%= form_for :word, url: words_path do |w| %>
+  <p>
+    <%= w.label :name%><br>
+    <%= w.text_area :name, size: "120x2"%>
+  </p>
+ 
+  <p>
+    <%= w.label :english_translation%><br>
+    <%= w.text_area :english_translation, size: "120x20"%>
+  </p>
+ 
+  <p>
+    <%= w.submit %>
+  </p>
+<% end %>

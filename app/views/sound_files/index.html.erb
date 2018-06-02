@@ -1,0 +1,21 @@
+<h1> Sound Files </h1>
+
+<h2> <%=link_to "Delete All", delete_all_sound_files_path %> </h2>
+ 
+<table border="1">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>File Location</th>
+    <th>Delete</th>
+  </tr>
+ 
+  <% @files.each_with_index do |file, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= file.name %></td>
+      <td><%= file.location %></td>
+      <td><%= link_to 'Delete', file, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>

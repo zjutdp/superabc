@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body{
+  /* background-image: url("/images/ultraman.jpg"); */
+  background-color: #fffff0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+input.submit_button {
+  height: 200px;
+  width: 100px;
+}
+
+/*
+.test_lc_table{
+
+}
+
+.test_lc_table thead {
+  width: 100%;
+
+}
+.test_lc_table td {
+  padding: 5px 5px 5px 0;
+  vertical-align: top;
+}
+.test_lc_table thead th {
+  padding-right: 10px;
+  text-align: left;
+}
+
+.test_lc_table textarea{
+  width: 100px;
+  height: 8px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+  padding: 8px;
+  font-weight: 200;
+  font-size: 15px;
+  font-family: Verdana;
+  box-shadow: 1px 1px 5px #CCC;
+} */
+

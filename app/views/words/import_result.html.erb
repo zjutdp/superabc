@@ -1,0 +1,19 @@
+<h1> Import Result </h1>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>English Translation</th>
+    <th>Imported</th>
+  </tr>
+
+  <% @import_result.each do |word| %>
+    <tr>
+      <td><%= word[0]%></td>
+      <td><%= word[1]%></td>
+      <td><%= word[2] ? "Yes" : "NO" %></td>
+    </tr>
+  <% end %>
+</table>
+
+

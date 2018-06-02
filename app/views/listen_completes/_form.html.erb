@@ -1,0 +1,13 @@
+<%= form_for @listen_complete do |lc| %>
+<table>
+  <tr><td><%= lc.label :story_name %> </td> <td> <%= lc.text_area :story, size: "100x1"%> </td></tr>
+  <tr><td> <%= lc.label :page %> </td> <td> <%= lc.text_area :page, size: "100x1"%>  </td></tr>
+  <tr><td> <%= lc.label :passage %> </td> <td> <%= lc.text_area :passage, wrap: "hard", size: "100x16"%>  </td></tr>
+  <tr> <td> Sound File </td> <td> <%= lc.select :sf_id, options_for_select(@sound_files.collect{ |sf| [sf.name, sf.id] }, @listen_complete.sf_id) %> </td></tr>
+  <tr><td> <%= lc.label :playback_start %> </td> <td> <%= lc.text_area :playback_start, size: "100x1"%> </td></tr>
+  <tr><td> <%= lc.label :playback_end %> </td> <td> <%= lc.text_area :playback_end, size: "100x1"%> </td></tr>
+
+  <tr> <td> <%= lc.submit :Submit %> </td><tr>
+<table>
+<% end %>
+

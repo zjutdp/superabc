@@ -1,0 +1,73 @@
+<h1> Pick the questions for a SuperABC Test</h1>
+
+<%= form_for :test, url: tests_path do |t| %>
+
+<p>
+  <%= t.label :test_name%> <%= t.text_field :name%>
+</p>
+
+<h2> Single Choice Questions </h2>
+<table border="1">
+  <tr>
+    <th><%= t.check_box "single_choices_all" %></th>
+    <th>Title</th>
+    <th>Choices (Answer is in <span "style=font-weight:bold">Bold</span>) </th>
+  </tr>
+<% @single_choices.each do |sc| %>
+  <tr>
+    <td> <%= t.check_box "single_choices[" + sc.id.to_s + "]" %> </td>
+    <td><%= sc.title %></td>
+    <td>
+        <table>
+           <% 4.times do |n| %>
+           <tr> <td> <span <%= "style=font-weight:bold" if sc.answer==n %> > <%= sc.attributes['choice'+n.to_s] %> </span> </td> </tr>
+           <% end %>
+        </table>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<h2> Listen and Complete Questions </h2>
+<table border="1">
+  <tr>
+    <th><%= t.check_box "listen_completes_all" %></th>
+    <th>Story</th>
+    <th>Page Number</th>
+    <th>Passage</th>
+    <th>Sound File</th>
+    <th>Playback Start Time</th>
+    <th>Playback End Time</th>
+  </tr>
+<% @listen_completes.each do |lc| %>
+  <tr>
+    <td> <%= t.check_box "listen_completes[" + lc.id.to_s + "]" %> </td>
+    <td><%= lc.story %></td>
+    <td><%= lc.page %></td>
+    <td><%= lc.passage %></td>
+    <td><%= lc.sound_file.name %></td>
+    <td><%= lc.playback_start %></td>
+    <td><%= lc.playback_end %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2> Sorts Questions </h2>
+<table border="1">
+  <tr>
+    <th><%= t.check_box "sorts_all" %></th>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+<% @sorts.each do |st| %>
+  <tr>
+    <td> <%= t.check_box "sorts[" + st.id.to_s + "]" %> </td>
+    <td><%= st.title %></td>
+    <td><%= st.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= submit_tag "提交吧，兄弟！！！" %>
+<% end %>
+

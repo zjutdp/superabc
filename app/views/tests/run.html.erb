@@ -1,0 +1,79 @@
+<h1> Welcome to Test: <%= @test.name %>!</h1>
+
+<%= form_for :test, url: test_result_path do |t| %>
+
+<h2> Single Choice Questions </h2>
+<table border="1">
+<% @test.single_choice_tests.each do |sct| %>
+    <tr>
+      <td><%= sct.single_choice.title %></td>
+      <td>
+          <table>
+          <% 4.times do |n| %>
+             <tr> <td> <input type="radio" name="test[answer[<%= sct.single_choice.title %>]]" value="<%= n %>"> <%= sct.single_choice.attributes["choice#{n}"] %> </input> </td> </tr>
+          <% end %>
+          </table>
+      </td>
+    </tr>
+<% end %>
+</table>
+
+<br><br>
+
+<script type="text/javascript">
+
+function playAudio(audio_id) {
+  // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video
+  var mediaElement = document.getElementById(audio_id);
+  mediaElement.play();
+}
+
+function pauseAudio(audio_id) {
+  var mediaElement = document.getElementById(audio_id);
+  mediaElement.pause();
+}
+
+function resetAudio(audio_id, start) {
+  var mediaElement = document.getElementById(audio_id);
+  mediaElement.pause();
+  mediaElement.currentTime = start;
+}
+
+</script>
+
+<h2> Listen and Complete Questions </h2>
+<table class='test_lc_table'>
+<% @test.listen_completes.each_with_index do |lc, index| %>
+  <tr>
+    <td>
+     <%= "#{index+1}. #{lc.story} - #{lc.page}" %>
+     <a href="#" onclick="playAudio('<%=lc.audio_player_id%>')"> Play </a>
+     <span>,</span>
+     <a href="#" onclick="pauseAudio('<%=lc.audio_player_id%>')"> Pause </a>
+     <span>,</span>
+     <a href="#" onclick="resetAudio('<%=lc.audio_player_id%>', <%=lc.playback_start%>)">Reset</a>
+     <audio id="<%=lc.audio_player_id%>" preload="auto">
+           <source  src="<%= File.join(SoundFile::LocationDirName, lc.sound_file.name) %>#t=<%=lc.playback_start%>,<%=lc.playback_end%>" type="audio/mpeg"> Your browser does not support the audio element.
+         </audio>
+    </td>
+  </tr>
+  <tr><td> <%== lc.passage_html %> </td></tr>
+  <tr><td><br/><td></tr>
+
+<% end %>
+</table>
+
+<h2> Sort Questions </h2>
+<table class='test_st_table'>
+<% @test.sorts do |sort| %>
+  <tr>
+<%= render "/sorts/run", locals => {:sort => sort} %>
+  </tr>
+<% end %>
+</table>
+
+<br><br>
+<%= submit_tag "提交吧，兄弟！！！", class: "submit_button" %>
+
+<% end %>
+

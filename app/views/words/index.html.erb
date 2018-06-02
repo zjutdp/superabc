@@ -1,0 +1,17 @@
+<h1>Listing words</h1>
+ 
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>English Translation</th>
+    <th>Delete</th>
+  </tr>
+ 
+  <% @words.each do |word| %>
+    <tr>
+      <td><%= word.name %></td>
+      <td><%= word.english_translation %></td>
+      <td><%= link_to 'Delete', word, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>

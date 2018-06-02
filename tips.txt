@@ -1,0 +1,2 @@
+1. Rails, <%= %> html escape output by default, use <%== %> to skip escape
+2. Ruby, String's strip(), index("sub", start) method

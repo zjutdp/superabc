@@ -1,0 +1,46 @@
+<h1> Welcome to "<%= @test.name %>" </h1>
+
+<h2> Single Shoices Questions </h2>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Choices (Answer is in <span "style=font-weight:bold">Bold</span>) </th>
+  </tr>
+<% @test.single_choices.each do |sc| %>
+  <tr>
+    <td><%= sc.title %></td>
+    <td>
+      <table>
+           <% 4.times do |n| %>
+           <tr> <td> <span <%= "style=font-weight:bold" if sc.answer==n %> > <%= sc.attributes['choice'+n.to_s] %> </span> </td> </tr>
+           <% end %>
+      </table>
+    </td>
+    <td><%= link_to 'Delete', test_single_choice_path(@test, :id => @test.id, :sc_id => sc.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2> Listen and Complete Questions </h2>
+<table border="1">
+  <tr>
+    <th>Story</th>
+    <th>Page Number</th>
+    <th>Passage</th>
+    <th>Sound File</th>
+    <th>Playback Start Time</th>
+    <th>Playback End Time</th>
+  </tr>
+<% @test.listen_completes.each do |lc| %>
+  <tr>
+    <td><%= lc.story %></td>
+    <td><%= lc.page %></td>
+    <td><%= lc.passage %></td>
+    <td><%= lc.sound_file.name %></td>
+    <td><%= lc.playback_start %></td>
+    <td><%= lc.playback_end %></td>
+    <td><%= link_to 'Delete', test_listen_complete_path(@test, :id => @test.id, :lc_id => lc.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  </tr>
+<% end %>
+</table>

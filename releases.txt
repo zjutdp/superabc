@@ -1,0 +1,58 @@
+0.1
+1. words with translation insertion
+2. words generating tests
+3. show test score
+4. single db table: words
+
+1.0
+1. db modeling with table: single_choices, single_choice_tests, tests, single_choice_tests_results, test_results, extensible for adding more test type
+2. words import from CSV file
+3. generate single choices from words list
+4. CRUD for single choice/test/test result with details
+
+1.1
+1. single choice definition support
+2. re-run test support
+3. refactor choices and answer indexing implementation
+4. fix the bug caused by nil.to_i equals 0!!!, see TestSController's TODO
+
+1.2
+1. Listen and complete support
+2. Sound file management
+DONE
+1. fix the sound file encoding problem (fixed by calling force_encoding('ISO-8859-1') on tmp file and openning dest file w/ same encoding)
+2. words csv file upload issue (fixed by change original_file_name to tempfile)
+3. figure out regex [[answer]], Shenjiong helped on this one
+
+1.3
+1. Enable Listen & Complete test result
+2. Minor enhancement & bug fixes
+
+1.4
+1. sorting support (drag and drop)
+
+
+User Story
+1. Listen and complete (Orange Book)
+1.1 mp3 playback range (start, end)
+1.2 modeling LC (Listen and Complete) (story name, page (int), passange (string w/ [[answer(word, phrase, sentense)]]), sound file, , playback range (start, end)
+2. Listen and check
+3. Listen and choose
+4. Connection
+5. Sorting (drag and drop)
+6. beautify website (css)
+7. Add Re-run test support
+8. Test Result compare? Related tests? (Dumping tesing result into HTML for now)
+9. Sort support in test
+10. Single question per page for testing
+11. Add Reading/Choices and translation (Family recite assisting)  support
+12. Generate choices based on words
+
+Bugs
+1. allow playback_end NOT NULL, set playback_start default to 0
+
+TODO
+1. Rename this app [family board, family learning assistant, SuperABC]
+
+Tips
+1. Treat yourself as the true user to learn English

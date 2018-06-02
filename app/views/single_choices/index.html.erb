@@ -1,0 +1,22 @@
+<h1>All single choices of the SuperABC</h1>
+<h2> <%=link_to "Delete All", delete_all_single_choices_path %> </h2>
+<table border="1">
+  <tr>
+    <th>Question</th>
+    <th>Choices</th>
+    <th>Delete</th>
+  </tr>
+<% @single_choices.each do |sc| %>
+  <tr>
+    <td><%= sc.title %></td>
+    <td>
+        <table>
+           <% 4.times do |n| %>
+           <tr> <td> <span <%= "style=font-weight:bold" if sc.answer==n %> > <%= sc.attributes['choice'+n.to_s] %> </span> </td> </tr>
+           <% end %>
+        </table>
+    </td>
+    <td><%= link_to 'Delete', sc, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  </tr>
+<% end %>
+</table>

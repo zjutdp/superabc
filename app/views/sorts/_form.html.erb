@@ -1,0 +1,5 @@
+<%= form_for @sort do |st| %>
+  <p> <%= st.label :question %> <br> <%= st.text_area :title, size: "70x2"%> </p>
+  <p> <%= st.label :content_in_ordered_line %> <br> <%= st.text_area :content, size: "100x10"%> </p>
+  <p> <%= st.submit :Submit %> </p>
+<% end %>

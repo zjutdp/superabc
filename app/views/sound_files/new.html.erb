@@ -1,0 +1,15 @@
+<h1> Upload a Sound File </h1>
+
+<% # DON'T forget adding 'enctype' field, otherwise the file param will be just a file name instead of file structure if you are using firefox %>
+<%= form_tag new_sound_file_path, enctype: "multipart/form-data" do %>
+<label>Select a file to upload</label>
+</br>
+</br>
+File Name: <%= text_field_tag "sound_files_album" %>
+<br>
+<br>
+Path: <%= file_field_tag "sound_files[]", multiple: true, accept: "mp3" %>
+</br>
+</br>
+<%= submit_tag "Upload" %>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Single Choice Definition</h1>
+
+<%= form_for :single_choice, url: new_single_choice_path do |sc| %>
+  <p> <%= sc.label :question %> <%= sc.text_area :title, size: "100x2"%> </p>
+
+  <table>
+  <% 4.times do |n| %>
+    <tr>
+    <td> <%= sc.radio_button :answer, n %> </td>
+    <td> <%= sc.text_area 'choice'+n.to_s, size: "100x2"%> </td>
+    </tr>
+  <% end %>
+  </table>
+
+  <p> <%= sc.submit :Submit %> </p>
+<% end %>
+
+

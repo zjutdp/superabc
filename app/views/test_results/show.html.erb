@@ -1,0 +1,53 @@
+<h1> 考试结果: <%= @test_result.result %> </h1>
+<h2>Single Choice</h2>
+<table border="1">
+<% @test_result.single_choice_test_results.each do |sctr| %>
+  <% sc = sctr.single_choice %>
+    <tr>
+      <td><%= sc.title %> <%= "(X)" if sctr.answer != sc.answer %> </td>
+      <td>
+        <table>
+           <% 4.times do |n| %>
+           <tr>
+              <td>
+                <input type="radio" name="<%= sc.title %>" disabled="true" <%= 'checked="checked"' if sctr.answer == n %>/>
+              <td>
+              <td> <span <%= "style=font-weight:bold" if sc.answer == n %> > <%= sc.attributes['choice'+n.to_s] %> </td> 
+           </tr>
+           <% end %>
+        </table>
+      </td>
+    </tr>
+<% end %>
+</table>
+
+<h2>Listen & Complete</h2>
+<table border="1">
+  <tr>
+    <th>Story</th>
+    <th>Page Number</th>
+    <th>Passage</th>
+    <th>Answers</th>
+  </tr>
+<% @test_result.listen_complete_test_results.each do |lctr| %>
+  <tr>
+    <td><%= lctr.listen_complete.story %></td>
+    <td><%= lctr.listen_complete.page %></td>
+    <td><p><%= lctr.listen_complete.passage %></p></td>
+    <td>
+      <table border="1">
+        <tr><th>Answer</th><th>Your Answer</th><th>Result</th></tr>
+        <% answers = lctr.answer_array %>
+        <% lctr.listen_complete.answer_array.each_with_index do |answer, index| %>
+        <tr>
+           <td><%= answer %></td>
+           <td><p><%= answers[index] %></p></td>
+           <td><%= "(Wrong)" if answer != answers[index] %></td>
+        </tr>
+        <% end %>
+      </table>
+  </tr>
+<% end %>
+</table>
+
+

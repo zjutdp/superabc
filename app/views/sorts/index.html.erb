@@ -1,0 +1,23 @@
+<h1>All Sort Questions</h1>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Delete</th>
+    <th>Update</th>
+    <th>Run</th>
+  </tr>
+ 
+  <% @sorts.each do |sort| %>
+    <tr>
+      <td><%= sort.title %></td>
+      <td><%= sort.content %></td>
+      <td><%= link_to 'Delete', sort_path(sort), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'Edit', edit_sort_path(sort) %></td>
+      <td><%= link_to 'Run', sort_run_path(sort), data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2> <%= link_to 'Create a New Sort Question', new_sort_path%> </h2>
