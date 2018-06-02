@@ -7,13 +7,19 @@ Things you may want to cover:
 
 * Ruby version
 
+ruby 2.2.7p470
+
 * System dependencies
 
 * Configuration
 
 * Database creation
 
+Built-in SQLite DB
+
 * Database initialization
+
+rake db:schema:load
 
 * How to run the test suite
 
