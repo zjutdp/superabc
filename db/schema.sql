@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS sound_files;
 DROP TABLE IF EXISTS sort_test_results;
 DROP TABLE IF EXISTS sort_tests;
 DROP TABLE IF EXISTS sorts;
+DROP TABLE IF EXISTS sessions;
 
 CREATE TABLE words(
     id INTEGER PRIMARY KEY NOT NULL,
@@ -98,7 +99,8 @@ CREATE TABLE sorts(
 CREATE TABLE sort_tests(
     id INTEGER PRIMARY KEY NOT NULL,
     t_id INTEGER REFERENCES tests,
-    st_id INTEGER REFERENCES sorts
+    st_id INTEGER REFERENCES sorts,
+    sortees TEXT NOT NULL
 );
 
 CREATE TABLE sort_test_results(
