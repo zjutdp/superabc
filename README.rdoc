@@ -1,36 +1,4 @@
-== README
+## Notes
+* Start server by "rails s", then navigate to "localhost:3000"
+* Run "docker build .", then run "docker run -p 3000:3000 -it superabc/1.5.1 rails s -b 0.0.0.0"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-** <tt>ruby 2.2.7p470</tt>
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-** <tt>Built-in SQLite DB</tt>
-
-* Database initialization
-
-** <tt>rake db:schema:load</tt>
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-** <tt> 1. start server by "rails s", then navigate to "localhost:3000"</tt>
-** <tt> 2. run "docker build .", then run "docker run -p 3000:3000 -it superabc/1.5.1 rails s -b 0.0.0.0" </tt>
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
